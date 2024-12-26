@@ -15,8 +15,7 @@ Aplikasi **Oil Production Calculator** adalah alat yang dirancang untuk menghitu
   - Menampilkan hasil perkalian antara harga minyak dan jumlah barrel per hari untuk menghitung keuntungan.
 
 - **Visualisasi Harga Minyak** 📈
-  - Menyediakan grafik yang menunjukkan fluktuasi harga minyak menggunakan **Chart.js**.
-
+  - Menyediakan grafik yang menunjukkan harga minyak.
 ---
 
 
