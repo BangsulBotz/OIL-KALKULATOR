@@ -1,4 +1,3 @@
-coba buat lebih keren lagi untuk file readme.MD tambahkan animasi yang keren abis, kalau bisa ada animasi tentang perminyakan atau sejenis nya
 
 # **Oil Production Calculator** 🌍⛽
 
