@@ -1,0 +1,250 @@
+/* styles.css */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+--s: 37px; /* control the size */
+--c: #0000, #282828 0.5deg 119.5deg, #0000 120deg;
+--g1: conic-gradient(from 60deg at 56.25% calc(425% / 6), var(--c));
+--g2: conic-gradient(from 180deg at 43.75% calc(425% / 6), var(--c));
+--g3: conic-gradient(from -60deg at 50% calc(175% / 12), var(--c));
+background: var(--g1), var(--g1) var(--s) calc(1.73 * var(--s)), var(--g2),
+  var(--g2) var(--s) calc(1.73 * var(--s)), var(--g3) var(--s) 0,
+  var(--g3) 0 calc(1.73 * var(--s)) #1e1e1e;
+background-size: calc(2 * var(--s)) calc(3.46 * var(--s));
+}
+
+.container {
+  max-width: 960px;
+  margin: 5px auto;  
+}
+
+h1 {
+color: #ffffff;
+text-align: center;
+margin-bottom: 10px;
+
+}
+
+
+h3 {
+color: #ffffff;
+text-align: center;
+margin-bottom: 20px; 
+
+}
+
+
+form {
+width: 100%;
+max-width: 500px; 
+}
+
+.form-group {
+  margin-bottom:10px;
+}
+
+.form-control {
+font-size: 1em;
+display: flex;
+flex-direction: row;
+justify-content: center;
+color: #ffffff; /* Warna teks awal putih */
+border: 1px solid #5b5b5b;
+border-radius: 15px;
+padding: 10px;
+background: #2c2c2c; /* Warna latar gelap saat tidak fokus */
+cursor: pointer;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Shadow default */
+transition: 
+  background-color 0.5s, 
+  color 0.5s, 
+  box-shadow 0.5s ease-in-out; /* Animasi untuk shadow */
+
+}
+
+.form-control:hover {
+background-color: #363636; /* Latar terang saat hover */
+outline: none;
+box-shadow: 0px 4px 6px rgba(143, 143, 143, 0.3); /* Shadow lebih terang */
+border: 2px solid #3f3f3f;
+transition: 
+    border-color 0.5s,
+    background-color 0.5s, 
+    color 0.5s,
+    box-shadow 0.5s ease-in-out; /* Animasi halus pada hover */
+  
+}
+
+.form-control:focus {
+background-color: #f4f4f4; /* Latar putih saat fokus */
+color: #000000; /* Warna teks hitam saat fokus */
+border-color: #7c7d7d; /* Warna border saat fokus */
+box-shadow: 0px 4px 6px rgba(143, 143, 143, 0.5); /* Shadow lebih terang saat fokus */
+transition: 
+  background-color 0.5s, 
+  color 0.5s, 
+  box-shadow 0.5s ease-in-out; /* Animasi halus pada fokus */
+
+}
+
+.form-control::placeholder {
+color: #aaaaaa; /* Placeholder lebih terlihat */
+transition: color 0.5s; /* Animasi perubahan warna placeholder */
+
+}
+
+.form-group label {
+color: #ffffff;
+font-size: 1em;
+font-weight: bold;
+}
+
+
+
+.btn-donate {
+  --clr-font-main: hsla(0 0% 20% / 100);
+  --btn-bg-1: hsla(194 100% 69% / 1);
+  --btn-bg-2: hsla(217 100% 56% / 1);
+  --btn-bg-color: hsla(360 100% 100% / 1);
+  --radii: 2em;
+  cursor: pointer;
+  padding: 0.9em 2.5em;
+  min-width: 120px;
+  min-height: 44px;
+  font-size: var(--size, 1rem);
+  font-weight: 500;
+  transition: 0.8s;
+  background-size: 280% auto;
+  background-image: linear-gradient(
+    325deg,
+    var(--btn-bg-2) 0%,
+    var(--btn-bg-1) 55%,
+    var(--btn-bg-2) 90%
+  );
+  border: none;
+  border-radius: var(--radii);
+  color: var(--btn-bg-color);
+  box-shadow:
+    0px 0px 20px rgba(71, 184, 255, 0.5),
+    0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+    inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+    inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+    justify-content: center;
+    margin-top: 1.5em;
+    margin: 15px 0;
+
+}
+
+.btn-donate:hover {
+  background-position: right top;
+}
+
+.btn-donate:is(:focus, :focus-visible, :active) {
+  outline: none;
+  box-shadow:
+    0 0 0 3px var(--btn-bg-color),
+    0 0 0 6px var(--btn-bg-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-donate {
+    transition: linear;
+  }
+}
+
+canvas {
+  background-color: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+
+
+.two-column-layout {
+display: flex;
+gap: 20px; /* Jarak antar kolom */
+padding: 0 20px;
+box-shadow: rgb(22, 22, 22,0.1);
+}
+
+.left-column11,
+.right-column11 {
+flex: 1 0 0;
+display: flex;
+flex-direction: column;
+justify-content: center; /* Untuk menempatkan konten secara vertikal di tengah */
+align-items: center; /* Untuk menempatkan konten secara horizontal di tengah */
+box-sizing: border-box;
+padding: 20px;
+border-radius: 30px;
+background: rgb(71, 71, 71); /* Memberikan transparansi pada latar belakang */
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow lebih jelas */
+border: 1px solid #121212;
+align-self: flex-start; /* Menyelaraskan judul di bagian kiri kolom */
+backdrop-filter: blur(10px); /* Efek blur di latar belakang */
+cursor: pointer;
+transform-style: preserve-3d
+
+}
+.left-column,
+.right-column {
+flex: 1 0 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+align-self: flex-start;
+box-sizing: border-box;
+padding: 20px;
+border-radius: 30px;
+background: rgba(92, 92, 92, 0.3); /* Memberikan transparansi */
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+border: 1px solid #121212;
+transform-style: preserve-3d;
+transform: perspective(1000px);
+}
+
+.left-column .card {
+transform: translateZ(20px);
+}
+
+.right-column .card {
+transform: translateZ(20px);
+}
+
+.right-column .result-card {
+transform: translateZ(20px);
+}
+
+
+
+@media (max-width: 600px) {
+.two-column-layout {
+    flex-direction: column;
+    gap: 0;
+}
+}
+
+.result-card {
+padding: 10px;
+border-radius: 5px;
+font-size: 1.2em;
+color: #ffffff;
+}
+
+.chart-container {
+text-align: center; 
+margin-bottom: 10px;
+}
+
+.chart-title {
+font-size: 1.5em;
+color: #ffffff;
+margin-bottom: 10px;
+}
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Produksi Minyak</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="node_modules/chart.js/dist/chart.min.js"></script>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4 text-center">OIL PROFIT CALCULATOR</h1>
+        <div class="two-column-layout">
+            <!-- Bagian kiri -->
+            <div class="left-column"data-tilt data-tilt-max="5" data-tilt-reverse="true" data-tilt-speed="400" data-tilt-perspective="700" data-tilt-glare data-tilt-max-glare="0.4" >
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Input Data Produksi</h3>
+                        <form id="productionForm">
+                            <div class="form-group">
+                                <label for="oilPrice">Harga Minyak (USD)</label>
+                                <input type="number" class="form-control" id="oilPrice" placeholder="Harga Minyak" step="any">
+                            </div>
+                            <div class="form-group">
+                                <label for="productionRate">Tingkat Produksi (barrel/hari)</label>
+                                <input type="number" class="form-control" id="productionRate" placeholder="Tingkat Produksi Minyak">
+                            </div>
+                            <button type="submit" class="btn btn-donate">Hitung Keuntungan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bagian kanan -->
+            <div class="right-column" data-tilt data-tilt-max="5" data-tilt-reverse="true" data-tilt-speed="400" data-tilt-perspective="700" data-tilt-glare data-tilt-max-glare="0.4" >
+                <div class="card">
+                    <div class="card-body">
+                        <h3>Estimasi Keuntungan/Hari</h3>
+                    </div>
+                </div>
+                <div id="result" class="result-card">
+                    <p>USD : $ 0.0</p>
+                    <p>IDR : Rp. 0.0</p>
+                </div>
+            </div>
+        </div>
+        <script src="vanilla-tilt.min.js"></script>
+        <div class="tradingview-widget">
+            <h3 class="chart-title">Grafik Real-Time Harga Oil</h3>
+            <div id="tradingview-widget"></div>
+        </div>
+    </div>
+    <script>
+        let oilPriceFromTradingView = 0;
+
+        new TradingView.widget({
+            "width": 1000, /* before 650 */
+            "height": 500, /* before 320 */
+            "symbol": "TVC:USOIL",
+            "interval": "M",
+            "timezone": "Etc/UTC",
+            "theme": "light",
+            "style": "1",
+            "locale": "id",
+            "toolbar_bg": "#f1f3f6",
+            "enable_publishing": false,
+            "hide_side_toolbar": false,
+            "allow_symbol_change": true,
+            "details": true,
+            "onChartReady": function() {
+                oilPriceFromTradingView = this.activeChart().getPrice();
+                document.getElementById('oilPrice').value = oilPriceFromTradingView;
+            }
+        });
+
+        document.getElementById('productionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const oilPrice = parseFloat(document.getElementById('oilPrice').value);
+            const productionRate = parseFloat(document.getElementById('productionRate').value);
+
+            if (isNaN(oilPrice) || isNaN(productionRate)) {
+                document.getElementById('result').innerHTML = 
+                    '<div class="alert alert-danger">Masukkan data yang valid!</div>';
+                return;
+            }
+
+            const dailyProfitUSD = oilPrice * productionRate;
+            const dailyProfitIDR = dailyProfitUSD * 16200;
+
+            const formatCurrency = (amount) => {
+                return amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+            };
+
+            document.getElementById('result').innerHTML = ` 
+                <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                    <div class="alert alert-success" style="text-align: left; max-width: 400px;">
+                        <p>USD : ${formatCurrency(dailyProfitUSD)}</p>
+                        <p>IDR : ${dailyProfitIDR.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' })}</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
