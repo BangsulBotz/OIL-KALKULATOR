@@ -19,11 +19,6 @@ Aplikasi **Oil Production Calculator** adalah alat yang dirancang untuk menghitu
 
 ---
 
-## **Screenshots** 🖼️
-
-![Screenshot Aplikasi](https://via.placeholder.com/800x400.png?text=Oil+Production+Calculator)
-
----
 
 ## **Cara Penggunaan** 🛠️
 
@@ -32,3 +27,5 @@ Aplikasi **Oil Production Calculator** adalah alat yang dirancang untuk menghitu
    ```bash
    git clone https://github.com/username/OilCalculator.git
    cd OilCalculator
+   npm install
+   npm start
