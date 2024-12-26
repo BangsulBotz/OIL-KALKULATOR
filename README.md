@@ -24,7 +24,7 @@ Aplikasi **Oil Production Calculator** adalah alat yang dirancang untuk menghitu
 1. **Clone repository ini** ke lokal komputer Anda menggunakan perintah:
 
    ```bash
-   git clone https://github.com/username/OilCalculator.git
+   git clone https://github.com/BangsulBotz/OIL-KALKULATOR.git
    cd OilCalculator
    npm install
    npm start
